@@ -29,7 +29,7 @@ These functions are:
 * Translate
 * X-Axis Rotate
 * Y-Axis Rotate
-* Z-Axos Rotate 
+* Z-Axis Rotate 
 Internally, these controls call functions that will generate a 4x4 Transformation Matrix and multiply it by the program’s [Global Transformation Matrix] (GTM). In this way the program allows the user to concatenate multiple transformations into the GTM.
 
 ### Global Controls
