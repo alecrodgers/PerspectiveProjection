@@ -107,12 +107,10 @@ public class PProjection extends Application {
 		btnControls.getChildren().add(drawBtn);
 		btnControls.getChildren().add(resetBtn);
 		btnControls.getChildren().add(clearBtn);
-		//btnControls.getChildren().add(writeBtn);
 		varControls.getChildren().addAll(cxLabel, cxTxt, cyLabel, cyTxt, czLabel, czTxt, sxLabel, sxTxt, syLabel, syTxt, szLabel, szTxt, angleLabel, angleTxt, numLinesLabel, numLinesTxt);
 		varControls.getChildren().add(new Label("Basic Transformations:"));
 		varControls.getChildren().addAll(scaleBtn, translateBtn, rotateXBtn, rotateYBtn, rotateZBtn);
-		//varControls.getChildren().add(new Label("Standard Transformations:"));
-		//varControls.getChildren().addAll(scaleBtn, rotateBtn);
+	
 		
 		
 		
@@ -143,9 +141,7 @@ public class PProjection extends Application {
 
 		});
 		
-		basicSBtn.setOnAction(e -> {
-			//basicScale(Double.parseDouble(sxTxt.getText()),Double.parseDouble(syTxt.getText()));
-		});
+		
 		
 		writeBtn.setOnAction(e -> {
 			writeLineData();
@@ -170,9 +166,7 @@ public class PProjection extends Application {
 			ZRotate(Double.parseDouble(angleTxt.getText()));
 		});
 		
-//		rotateBtn.setOnAction(e -> {
-//			//rotate(Double.parseDouble(angleTxt.getText()),Integer.parseInt(cxTxt.getText()),Integer.parseInt(cyTxt.getText()));
-//		});
+
 	
 		
 		
@@ -226,7 +220,6 @@ public class PProjection extends Application {
 			}
 			  			  
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 		  //Debug
@@ -234,7 +227,6 @@ public class PProjection extends Application {
 }
 	
 	//Apply the transformation matrix to points currently stored in the LineData matrix
-	//TODO
 	public void applyTransformation() {
 		ArrayList<Double> result = new ArrayList<Double>();
 		for(int i = 0; i < lineData.size(); i+=3) {
@@ -251,7 +243,6 @@ public class PProjection extends Application {
 	public void scanConvert(){
 		outputData.clear();
 		for(int i = 0; i < lineData.size(); i+=6) {
-			//simpleLine(lineData.get(i),lineData.get(i+1),lineData.get(i+2),lineData.get(i+3));
 			double[] xyA = PerspectiveProjection(lineData.get(i),lineData.get(i+1),lineData.get(i+2));
 			double[] xyB = PerspectiveProjection(lineData.get(i+3),lineData.get(i+4),lineData.get(i+5));
 			bhm_line((int)xyA[0],(int)xyA[1],(int)xyB[0],(int)xyB[1]);
@@ -348,11 +339,7 @@ public class PProjection extends Application {
 
 
 	
-	public void rotate(double d, double Cx, double Cy, double Cz) {
-//		basicTranslate(-Cx,-Cy, -Cz);
-//		basicRotate(d);
-//		basicTranslate(Cx,Cy, Cz);
-	}
+	
 	
 	//multiplies a lineMatrix by the global transformation
 	//returns the result
